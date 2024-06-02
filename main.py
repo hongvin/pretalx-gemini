@@ -84,8 +84,10 @@ def calling_gemini(model,abstract, description, reviews):
 st.set_page_config(layout='wide')
 st.title("PyCon MY 2024 Submissions")
 
-api_key = os.getenv("PRETALX_API")
-gemini_key=os.getenv('GEMINI_API')
+#api_key = os.getenv("PRETALX_API")
+api_key = st.secrets['PRETALX_API']
+gemini_key = st.secrets['GEMINI_API']
+#gemini_key=os.getenv('GEMINI_API')
 
 genai.configure(api_key=gemini_key)
 model = genai.GenerativeModel('gemini-1.5-flash')
